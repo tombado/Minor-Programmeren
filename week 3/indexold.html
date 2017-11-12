@@ -1,0 +1,145 @@
+<!-- Thomas van Dooren, 1062588, dataprocessing. -->
+<!-- In this file, a website is created which contains a graph of the maximum temperature in De Bilt of the year 2016. -->
+<html>
+    <head>
+
+    
+
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css">  
+            <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
+
+            <text>
+            Thomas van Dooren,
+            10625488,
+            Dataprocessing.
+            Data supplied by: <a href="http://projects.knmi.nl/klimatologie/daggegevens/selectie.cgi">KNMI</a>
+
+
+            </text>
+    </head>
+
+    <body>
+
+    <div id="chart"></div>
+
+    <script>
+    
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            
+        // Typical action to be performed when the document is ready:
+        var response = xhttp.responseText
+        
+        // Split the data into lines.
+       
+        
+        lines = response.split("\n");
+        lines.splice(0,12);
+        
+        // Create a list with dates with the first element being "date", this is usefull later on.
+        var date = [];
+        date.push("date");
+        
+        // Create a list with temperatures with the first element being "Temperature", this is usefull later on.
+        var temp = [];
+        temp.push("Temperature");
+        
+        for(var i = 0; i < lines.length - 1 ; i++){
+            var chunk = lines[i].split(",");
+            
+            
+            
+            // Calculate the temperature in degrees Celcius.
+        var temperature = Number(chunk[2]) / 10;
+        
+        // Insert "," after year and month to create this format: yyyy,mm,dd. 
+        var splitteddate = chunk[1].slice(0, 4) + "," + chunk[1].slice(4,6) + "," + chunk[1].slice(6,8);
+        
+        
+        
+        // Quickfix for a problem with loading empty dates, this is the same as checking that splitted[0] is not empty.
+        // When an empty date is loaded, those commas are still inserted in line 426. When the date is incorrect, the temperature is also incorrect.
+        if (splitteddate !== ",,") {
+            
+            // Create a javascript date.
+            var d = new Date(splitteddate);
+            
+            // Push all the data to the 2 lists.
+            temp.push(temperature);
+            date.push(d);} 
+        
+            }
+
+            console.log(date)
+            console.log(temp)
+        
+        
+        
+        
+    
+        
+        // Read the data line by line, and split this data by ",".
+        
+
+    // Create a line chart!
+    var options = {
+        bindto: '#chart',
+        data: {
+            
+            // X axis will contain the date.
+            x : 'date',
+            columns: [
+                
+                // Insert the two lists.
+                date,
+                temp
+                
+            ]
+            
+        },
+        axis : {
+            x : {
+                label: 'Date',
+                type : 'timeseries',
+                
+                // Determines the text on the x-axis.
+                tick : {
+                    
+                    count : 12,
+                    culling : false,
+                    
+                    format : "%e %b %y "
+                }
+                
+            },
+            
+            // Y axis will contain the temperature.
+            y: {    
+                    label: 'Temperature (degrees Celcius)'
+                }
+        },
+        
+    };
+    
+    // Generate the graph with the c3 module.
+    c3.generate(options);
+    
+    // Create a title for the graph.
+    d3.select('#chart svg').append('text')
+        .attr('x', d3.select('#chart svg').node().getBoundingClientRect().width / 2)
+        .attr('y', 16)
+        .attr('text-anchor', 'middle')
+        .style('font-size', '2em')
+        .text('Maximum temperature in De Bilt');
+            }
+        };
+        xhttp.open("GET", "KNMI_20161231.txt", true);
+        xhttp.send();
+    </script>
+
+    </body>
+
+</html>
