@@ -48,14 +48,14 @@
                 var temperature = Number(chunk[2]) / 10;
             
                 // Insert "," after year and month to create this format: yyyy,mm,dd. chunk[1] cointains the date. 
-                var splitteddate = chunk[1].slice(0, 4) + "," + chunk[1].slice(4,6) + "," + chunk[1].slice(6,8);
+                var splittedDate = chunk[1].slice(0, 4) + "," + chunk[1].slice(4,6) + "," + chunk[1].slice(6,8);
             
                 // Quickfix for a problem with loading empty dates, this is the same as checking that chunk[1] is not empty.
                 // When an empty date is loaded, those commas are still inserted in line 51. When the date is incorrect, the temperature is also incorrect.
-                if (splitteddate !== ",,") 
+                if (splittedDate !== ",,") 
                     {
                     // Create a javascript date.
-                    var d = new Date(splitteddate);
+                    var d = new Date(splittedDate);
                     
                     // Push all the data to the 2 lists.
                     temp.push(temperature);
@@ -68,11 +68,11 @@
                     {
                     // This function will return a number between 0 and 1. This indicates a scaling for the temperature.
                     var range = [-5,30];
-                    var range_min = range[0];
-                    var range_max = range[1];
+                    var rangeMin = range[0];
+                    var rangeMax = range[1];
 
                     // formulas to calculate the alpha
-                    var alpha = (temperature + Math.abs(range_min)) / (Math.abs(range_min) + range_max);
+                    var alpha = (temperature + Math.abs(rangeMin)) / (Math.abs(rangeMin) + rangeMax);
                     
                     // Returns the function for the yaxis transformation.. a number between 0 and 1.
                     return alpha 
