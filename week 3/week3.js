@@ -1,45 +1,4 @@
-<html>
-<head>
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
-
-
-
-<text>
-Thomas van Dooren,
-10625488,
-Dataprocessing.
-Data supplied by: <a href="http://projects.knmi.nl/klimatologie/daggegevens/selectie.cgi">KNMI</a>
-
-</text>
-</head>
-
-<body>
-<style>
-
-  .bar{
-    fill: steelblue;
-  }
-
-  .bar:hover{
-    fill: brown;
-  }
-
-    .axis {
-      font: 10px sans-serif;
-    }
-
-    .axis path,
-    .axis line {
-      fill: none;
-      stroke: #000;
-      shape-rendering: crispEdges;
-    }
-
-    </style>
-<div class="chart"></div>
-
-<script>
 
 var data = [4, 8, 15, 16, 23, 42];
 //Storing data:
@@ -74,6 +33,15 @@ var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left")
     .ticks(10);
+
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {
+    return "<strong>Frequency:</strong> <span style='color:red'>" + d.frequency + "</span>";
+  })
+
+
 // add the SVG element
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -82,14 +50,16 @@ var svg = d3.select("body").append("svg")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
 
+svg.call(tip);
 
-// load the data
-//d3.json("C:\Users\Gebruiker\Documents\GitHub\Minor-Programmeren\Week 2\data.json", function(error, data) {
 
-//    data.forEach(function(d) {
-//        d.Letter = d.Letter;
-     //   d.Freq = +d.Freq;
-//    });
+//load the data
+d3.json("C:\Users\Gebruiker\Documents\GitHub\Minor-Programmeren\Week 2\data.json", function(error, data) {
+
+    data.forEach(function(d) {
+        d.Letter = d.Letter;
+        d.Freq = +d.Freq;
+    });
 data =
 [
 {
@@ -237,13 +207,6 @@ data =
 
 
 
-
-
-
-</script>
-
-</body>
-</html>
 
 
 
