@@ -54,12 +54,12 @@ svg.call(tip);
 
 
 //load the data
-d3.json("C:\Users\Gebruiker\Documents\GitHub\Minor-Programmeren\Week 2\data.json", function(error, data) {
-
-    data.forEach(function(d) {
-        d.Letter = d.Letter;
-        d.Freq = +d.Freq;
-    });
+//d3.json("C:\Users\Gebruiker\Documents\GitHub\Minor-Programmeren\Week 2\data.json", function(error, data) {
+//
+//    data.forEach(function(d) {
+//        d.Letter = d.Letter;
+//        d.Freq = +d.Freq;
+//    });
 data =
 [
 {
