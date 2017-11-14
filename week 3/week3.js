@@ -34,12 +34,7 @@ var yAxis = d3.svg.axis()
     .orient("left")
     .ticks(10);
 
-var tip = d3.tip()
-  .attr('class', 'd3-tip')
-  .offset([-10, 0])
-  .html(function(d) {
-    return "<strong>Frequency:</strong> <span style='color:red'>" + d.frequency + "</span>";
-  })
+
 
 
 // add the SVG element
@@ -50,15 +45,16 @@ var svg = d3.select("body").append("svg")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
 
-svg.call(tip);
+
+
 
 
 //load the data
 //d3.json("C:\Users\Gebruiker\Documents\GitHub\Minor-Programmeren\Week 2\data.json", function(error, data) {
-//
+
 //    data.forEach(function(d) {
-//        d.Letter = d.Letter;
 //        d.Freq = +d.Freq;
+
 //    });
 data =
 [
@@ -198,8 +194,8 @@ data =
       .attr("x", function(d) { return x(d.Letter); })
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.Freq); })
-      .attr("height", function(d) { return height - y(d.Freq); });
-
+      .attr("height", function(d) { return height - y(d.Freq)});
+      
 
     
 

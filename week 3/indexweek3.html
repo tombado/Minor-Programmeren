@@ -1,6 +1,8 @@
 <html>
 <head>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
 
 
 
@@ -36,10 +38,40 @@ Data supplied by: <a href="http://projects.knmi.nl/klimatologie/daggegevens/sele
       shape-rendering: crispEdges;
     }
 
+  .d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
     </style>
 <div class="chart"></div>
 
-<script>
+<script type="text/javascript">
+  
 
 var data = [4, 8, 15, 16, 23, 42];
 //Storing data:
@@ -52,6 +84,13 @@ console.log(text)
 obj = JSON.parse(text);
 
 console.log(obj)
+
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {
+    return "<strong>Frequency:</strong> <span style='color:red'>" + d.Freq + "</span>";
+  })
 
 // set the dimensions of the canvas
 var margin = {top: 20, right: 20, bottom: 70, left: 40},
@@ -74,6 +113,10 @@ var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left")
     .ticks(10);
+
+
+
+
 // add the SVG element
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -83,13 +126,20 @@ var svg = d3.select("body").append("svg")
           "translate(" + margin.left + "," + margin.top + ")");
 
 
-// load the data
-//d3.json("C:\Users\Gebruiker\Documents\GitHub\Minor-Programmeren\Week 2\data.json", function(error, data) {
+svg.call(tip);
 
+
+
+
+
+//load the data
+//d3.json("C:\Users\Gebruiker\Documents\GitHub\Minor-Programmeren\Week 2\data.json", function(error, data) {
+//
 //    data.forEach(function(d) {
-//        d.Letter = d.Letter;
-     //   d.Freq = +d.Freq;
+//        d.Freq = +d.Freq;
+//
 //    });
+
 data =
 [
 {
@@ -228,10 +278,13 @@ data =
       .attr("x", function(d) { return x(d.Letter); })
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.Freq); })
-      .attr("height", function(d) { return height - y(d.Freq); });
-
+      .attr("height", function(d) { return height - y(d.Freq); })
+      .on('mouseover', tip.show)
+      .on('mouseout', tip.hide)
+      
 
     
+
 
 
 

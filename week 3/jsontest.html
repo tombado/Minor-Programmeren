@@ -1,8 +1,12 @@
+
+
 <html>
 <head>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script src="week3.js" charset="utf-8"></script>
 <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+
 
 
 
@@ -37,6 +41,7 @@ Data supplied by: <a href="http://projects.knmi.nl/klimatologie/daggegevens/sele
       stroke: #000;
       shape-rendering: crispEdges;
     }
+
   .d3-tip {
   line-height: 1;
   font-weight: bold;
@@ -66,15 +71,37 @@ Data supplied by: <a href="http://projects.knmi.nl/klimatologie/daggegevens/sele
   left: 0;
 }
 
-
-
     </style>
 <div class="chart"></div>
 
+<script type="text/javascript">
 
+$.getJSON("data.json", function(json) {
+    console.log(json); // this will show the info it in firebug console
+});
+
+//load the data
+//d3.json("data.json", function(error, data) 
+//{
+//    data.forEach(function(d) {
+//      d.Freq = +d.Freq;
+//      console.log(data)
+//    });
+//});
+
+      
+
+    
+
+
+
+
+
+
+
+
+
+</script>
 
 </body>
 </html>
-
-
-
