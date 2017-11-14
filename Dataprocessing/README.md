@@ -2,4 +2,4 @@
 	Data processing
 
 
-<a href="https://tombado.github.io/Minor-Programmeren/Dataprocessing/">https://tombado.github.io/Minor-Programmeren/Dataprocessing/</a>
+<a href="https://tombado.github.io/Minor-Programmeren/Dataprocessing/">klik hier</a>
