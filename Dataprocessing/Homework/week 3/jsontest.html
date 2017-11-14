@@ -76,18 +76,18 @@ Data supplied by: <a href="http://projects.knmi.nl/klimatologie/daggegevens/sele
 
 <script type="text/javascript">
 
-$.getJSON("data.json", function(json) {
-    console.log(json); // this will show the info it in firebug console
-});
+//$.getJSON("dataalphabet.txt", function(json) {
+//    console.log(json); // this will show the info it in firebug console
+//});
 
 //load the data
-//d3.json("data.json", function(error, data) 
-//{
-//    data.forEach(function(d) {
-//      d.Freq = +d.Freq;
-//      console.log(data)
-//    });
-//});
+d3.json("dataalphabet.json", function(error, data) 
+{
+    data.forEach(function(d) {
+      d.Freq = +d.Freq;
+      console.log(data)
+    });
+});
 
       
 
