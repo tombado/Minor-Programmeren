@@ -1,8 +1,9 @@
 
 
 
-<a href="https://tombado.github.io/Minor-Programmeren/">https://tombado.github.io/Minor-Programmeren/</a>
+Data processing homework van Thomas van Dooren, 10625488:
 
-https://tombado.github.io/Minor-Programmeren/Dataprocessing/Homework/Week%202/index.html
 
-<a href="https://tombado.github.io/Minor-Programmeren/Dataprocessing/Homework/Week%202/index.html">link text</a>
+Week 2: https://tombado.github.io/Minor-Programmeren/Dataprocessing/Homework/Week%202/index.html
+Week 3:
+
