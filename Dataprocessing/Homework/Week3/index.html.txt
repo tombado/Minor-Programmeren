@@ -1,0 +1,20 @@
+<!-- Thomas van Dooren, 10625488, dataprocessing. 
+     This file is responsible for structuring the website and using theme.css and scripts.js. 
+     The website shows a barchart with KNMI data -->
+
+<html>
+  <head>
+
+   
+    
+      <text>
+        Thomas van Dooren,
+        10625488,
+        Dataprocessing.
+        
+        <a href="https://github.com/tombado/Minor-Programmeren/blob/master/Dataprocessing/Homework/Week3/barchart.html">
+          Barchart
+        </a>
+      </text>
+  </head>
+</html>
