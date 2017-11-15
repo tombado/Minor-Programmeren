@@ -3,10 +3,6 @@
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 
-
-
-
-
 <text>
 Thomas van Dooren,
 10625488,
@@ -24,7 +20,7 @@ Data supplied by: <a href="http://projects.knmi.nl/klimatologie/daggegevens/sele
   }
 
   .bar:hover{
-    fill: brown;
+    fill: yellow;
   }
 
     .axis {
@@ -44,7 +40,7 @@ Data supplied by: <a href="http://projects.knmi.nl/klimatologie/daggegevens/sele
   padding: 12px;
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
-  border-radius: 2px;
+  border-radius: 10px;
 }
 
 /* Creates a small triangle extender for the tooltip */
@@ -72,24 +68,11 @@ Data supplied by: <a href="http://projects.knmi.nl/klimatologie/daggegevens/sele
 
 <script type="text/javascript">
   
-
-var data = [4, 8, 15, 16, 23, 42];
-//Storing data:
-myObj = { "apple":4, "banana":31, "city": 5 };
-myJSON = JSON.stringify(myObj);
-localStorage.setItem("testJSON", myJSON);
-
-text = localStorage.getItem("testJSON");
-console.log(text)
-obj = JSON.parse(text);
-
-console.log(obj)
-
 var tip = d3.tip()
   .attr('class', 'd3-tip')
   .offset([-10, 0])
   .html(function(d) {
-    return "<strong>Frequency:</strong> <span style='color:red'>" + d.Freq + "</span>";
+    return "<strong>Neerslagduur:</strong> <span style='color:red'>" + d.Rain + "</span>";
   })
 
 // set the dimensions of the canvas
@@ -107,7 +90,7 @@ var y = d3.scale.linear().range([height, 0]);
 var xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom")
-
+    .ticks(12);
 
 var yAxis = d3.svg.axis()
     .scale(y)
@@ -121,139 +104,25 @@ var yAxis = d3.svg.axis()
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-  .append("g")
+    .append("g")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
 
 
 svg.call(tip);
 
-
-
-
-
-//load the data
-//d3.json("C:\Users\Gebruiker\Documents\GitHub\Minor-Programmeren\Week 2\data.json", function(error, data) {
-//
-//    data.forEach(function(d) {
-//        d.Freq = +d.Freq;
-//
-//    });
-
-data =
-[
-{
-    "Letter": "A",
-    "Freq": 20  
-},
-{
-    "Letter" : "B",
-    "Freq": 12
-},
-{
-    "Letter" : "C",
-    "Freq": 47
-},
-{
-    "Letter" : "D",
-    "Freq": 34
-},
-{
-    "Letter" : "E",
-    "Freq" : 54
-},
-{
-    "Letter" : "F",
-    "Freq" : 21
-},
-{
-    "Letter" : "G",
-    "Freq" : 57
-},
-{
-    "Letter" : "H",
-    "Freq" : 31
-},
-{
-    "Letter" : "I",
-    "Freq" : 17
-},
-{
-    "Letter" : "J",
-    "Freq" : 5
-},
-{
-    "Letter" : "K",
-    "Freq" : 23
-},
-{
-    "Letter" : "L",
-    "Freq" : 39
-},
-{
-    "Letter" : "M",
-    "Freq" : 29
-},
-{
-    "Letter" : "N",
-    "Freq" : 33
-},
-{
-    "Letter" : "O",
-    "Freq" : 18
-},
-{
-    "Letter" : "P",
-    "Freq" : 35
-},
-{
-    "Letter" : "Q",
-    "Freq" : 11
-},
-{
-    "Letter" : "R",
-    "Freq" : 45
-},
-{
-    "Letter" : "S",
-    "Freq" : 43
-},
-{
-    "Letter" : "T",
-    "Freq" : 28
-},
-{
-    "Letter" : "U",
-    "Freq" : 26
-},
-{
-    "Letter" : "V",
-    "Freq" : 30
-},
-{
-    "Letter" : "X",
-    "Freq" : 5
-},
-{
-    "Letter" : "Y",
-    "Freq" : 4
-},
-{
-    "Letter" : "Z",
-    "Freq" : 2
-}
-]
-
-// scale the range of the data
-  x.domain(data.map(function(d) { return d.Letter; }));
-  y.domain([0, d3.max(data, function(d) { return d.Freq; })]);
+d3.json("data.txt", function(error, data) 
+{   
+    console.log(data);
+    x.domain(data.map(function(d) { return d.Date; }));
+  y.domain([0, d3.max(data, function(d) { return d.Rain; })]);
 
   // add axis
   svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
-    .selectAll("text")
+      .selectAll("text")
       .style("text-anchor", "end")
       .attr("dx", "-.8em")
       .attr("dy", "-.55em")
@@ -262,25 +131,29 @@ data =
   svg.append("g")
       .attr("class", "y axis")
       .call(yAxis)
-    .append("text")
+      .append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 5)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Frequency");
+      .text("Rain");
 
 
   // Add bar chart
   svg.selectAll("bar")
       .data(data)
-    .enter().append("rect")
+      .enter().append("rect")
       .attr("class", "bar")
-      .attr("x", function(d) { return x(d.Letter); })
+      .attr("x", function(d) { return x(d.Date); })
       .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.Freq); })
-      .attr("height", function(d) { return height - y(d.Freq); })
+      .attr("y", function(d) { return y(d.Rain); })
+      .attr("height", function(d) { return height - y(d.Rain); })
       .on('mouseover', tip.show)
       .on('mouseout', tip.hide)
+});
+
+
+  
       
 
     

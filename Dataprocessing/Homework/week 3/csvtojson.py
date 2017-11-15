@@ -3,9 +3,9 @@ import json
 
 lines =[]
 date = []
-temp = []
+rain = []
 
-with open ("C:\Users\Gebruiker\Documents\GitHub\Minor-Programmeren\week 3\KNMI_20161231.csv") as csvfile:
+with open ("KNMIregen.txt") as csvfile:
     reader = csv.DictReader(csvfile)
 
     
@@ -32,7 +32,7 @@ for i in range(0, len(lines)):
 		
 		
 	myDictDate = dict.values(myDict)[0][0]
-	myDictTemp = float(dict.values(myDict)[0][1]) / 10
+	myDictRain = int(dict.values(myDict)[0][1])
 
 	
 	if myDictDate[-2:] == "01":
@@ -41,13 +41,14 @@ for i in range(0, len(lines)):
 		
 	monthInput.append(months[month])	
 	date.append(myDictDate)
-	temp.append(myDictTemp)
+	rain.append(myDictRain)
 
 
 
-#print json.dumps([{'Date': Date, 'Temperature': Temperature} for Date, Temperature in zip(date, temp)])
 
-data = [{'Date': Date, 'Temperature': Temperature} for Date, Temperature in zip(monthInput, temp)]
+
+data = [{'Date': Date, 'Rain': Rain} for Date, Rain in zip(monthInput, rain)]
+
 with open('data.txt', 'w') as outfile:
     json.dump(data, outfile)
 

@@ -81,25 +81,17 @@ Data supplied by: <a href="http://projects.knmi.nl/klimatologie/daggegevens/sele
 //});
 
 //load the data
-d3.json("dataalphabet.json", function(error, data) 
+d3.json("dataalphabet.txt", function(error, data) 
 {
-    data.forEach(function(d) {
-      d.Freq = +d.Freq;
-      console.log(data)
-    });
+    console.log(data);
+   // data.forEach(function(d) {
+     // d.Freq = +d.Freq;
+      //console.log(data)
+    //});
 });
 
-      
 
     
-
-
-
-
-
-
-
-
 
 </script>
 

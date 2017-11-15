@@ -1,3 +1,0 @@
-<html>
-<a href="Homework/Week 2/index.html"</a>
-</html>
