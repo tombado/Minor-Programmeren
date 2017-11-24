@@ -1,0 +1,13 @@
+[
+{"Country":"Netherlands","c02percapita":9.92,"lifeexpectancy":81.7,"totalco2":167350400},
+{"Country":"Italy","c02percapita":5.31,"lifeexpectancy":83.1,"totalco2":322240000},
+{"Country":"France","c02percapita":4.57,"lifeexpectancy":82.7,"totalco2":302991000},
+{"Country":"Spain","c02percapita":5.00,"lifeexpectancy":83.2,"totalco2":232400000},
+{"Country":"Portugal","c02percapita":4.33,"lifeexpectancy":81.1,"totalco2":45032000},
+{"Country":"Denmark","c02percapita":5.94,"lifeexpectancy":80.7,"totalco2":33501600},
+{"Country":"Finland","c02percapita":8.66,"lifeexpectancy":81.2,"totalco2":47283600},
+{"Country":"Bulgaria","c02percapita":5.87,"lifeexpectancy":74.5,"totalco2":42381400},
+{"Country":"Aruba","c02percapita":8.41,"lifeexpectancy":75.5,"totalco2":874000},
+{"Country":"Japan","c02percapita":9.54,"lifeexpectancy":83.6,"totalco2":1214442000}
+
+]
