@@ -1,0 +1,6 @@
+country,quality of life index,purchasing power index,safety index
+Denmark,180.14,98.67,78.50
+Finland,179.40,101.93,76.81
+Germany,178.92,107.90,67.36
+Austria,178.53,87.11,80.87
+Netherlands,177.80,94.23,71.11

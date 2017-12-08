@@ -1,0 +1,130 @@
+{
+    "countries": {
+        "Denmark":
+        { 
+            "quality of life index":  
+            [{"date":"2012", "close":163},
+            {"date":"2013", "close":182},
+            {"date":"2014", "close":166},
+            {"date":"2015", "close":254},
+            {"date":"2016", "close":202},
+            {"date":"2017", "close":180}],
+            "purchasing power index":
+            [{"date":"2012", "close":99},
+            {"date":"2013", "close":105},
+            {"date":"2014", "close":101},
+            {"date":"2015", "close":106},
+            {"date":"2016", "close":142},
+            {"date":"2017", "close":98}],
+            "safety index":
+            [{"date":"2012", "close":55},
+            {"date":"2013", "close":69},
+            {"date":"2014", "close":71},
+            {"date":"2015", "close":74},
+            {"date":"2016", "close":74},
+            {"date":"2017", "close":79}]
+        },
+        "Germany":
+        {   
+            "quality of life index": 
+            [{"date":"2012", "close":184},
+            {"date":"2013", "close":205},
+            {"date":"2014", "close":193},
+            {"date":"2015", "close":196},
+            {"date":"2016", "close":200},
+            {"date":"2017", "close":190}],
+            "purchasing power index":
+            [{"date":"2012", "close":114},
+            {"date":"2013", "close":118},
+            {"date":"2014", "close":112},
+            {"date":"2015", "close":112},
+            {"date":"2016", "close":148},
+            {"date":"2017", "close":125}],
+            "safety index":
+            [{"date":"2012", "close":79},
+            {"date":"2013", "close":76},
+            {"date":"2014", "close":73},
+            {"date":"2015", "close":72},
+            {"date":"2016", "close":74},
+            {"date":"2017", "close":68}]
+
+        },
+
+        "Netherlands":
+        { 
+            "quality of life index": 
+            [{"date":"2012", "close":158},
+            {"date":"2013", "close":161},
+            {"date":"2014", "close":161},
+            {"date":"2015", "close":167},
+            {"date":"2016", "close":192},
+            {"date":"2017", "close":175}],
+            "purchasing power index":
+            [{"date":"2012", "close":94},
+            {"date":"2013", "close":95},
+            {"date":"2014", "close":98},
+            {"date":"2015", "close":102},
+            {"date":"2016", "close":129},
+            {"date":"2017", "close":87}],
+            "safety index":
+            [{"date":"2012", "close":72},
+            {"date":"2013", "close":62},
+            {"date":"2014", "close":63},
+            {"date":"2015", "close":65},
+            {"date":"2016", "close":69},
+            {"date":"2017", "close":70}]
+
+        },
+
+        "Finland":
+        { 
+            "quality of life index": 
+            [{"date":"2012", "close":165},
+            {"date":"2013", "close":167},
+            {"date":"2014", "close":179},
+            {"date":"2015", "close":190},
+            {"date":"2016", "close":184},
+            {"date":"2017", "close":183}],
+            "purchasing power index":
+            [{"date":"2012", "close":99},
+            {"date":"2013", "close":96},
+            {"date":"2014", "close":98},
+            {"date":"2015", "close":101},
+            {"date":"2016", "close":133},
+            {"date":"2017", "close":115}],
+            "safety index":
+            [{"date":"2012", "close":67},
+            {"date":"2013", "close":67},
+            {"date":"2014", "close":71},
+            {"date":"2015", "close":70},
+            {"date":"2016", "close":72},
+            {"date":"2017", "close":75}]
+
+        },
+
+        "Austria":
+        { 
+            "quality of life index": 
+            [{"date":"2012", "close":160},
+            {"date":"2013", "close":167},
+            {"date":"2014", "close":172},
+            {"date":"2015", "close":183},
+            {"date":"2016", "close":192},
+            {"date":"2017", "close":190}],
+            "purchasing power index":
+            [{"date":"2012", "close":99},
+            {"date":"2013", "close":89},
+            {"date":"2014", "close":92},
+            {"date":"2015", "close":105},
+            {"date":"2016", "close":120},
+            {"date":"2017", "close":96}],
+            "safety index":
+            [{"date":"2012", "close":56},
+            {"date":"2013", "close":70},
+            {"date":"2014", "close":74},
+            {"date":"2015", "close":74},
+            {"date":"2016", "close":76},
+            {"date":"2017", "close":81}]
+        }
+    }
+}
