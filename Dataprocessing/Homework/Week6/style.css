@@ -1,0 +1,21 @@
+/* Thomas van Dooren, 10625488, dataprocessing. This file is responsible for loading css on the website. */
+path.line
+{
+    fill: none;
+    stroke: #000;
+}
+
+div.tooltip 
+{
+  position: absolute;
+  text-align: center;
+  width: 77px;
+  height: 40px;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: yellow;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
