@@ -1,7 +1,0 @@
-﻿country,quality of life index,purchasing power index,safety index,health care index,cost of living index,property price to income ratio,traffic commute time index,pollution index,climate index
-Denmark,180.14,98.67,78.50,76.17,93.27,7.26,28.60,24.25,82.01
-Finland,179.40,101.93,76.81,74.61,81.23,7.61,33.87,12.65,58.78
-Germany,178.92,107.90,67.36,75.99,73.18,7.82,30.66,27.18,82.75
-Austria,178.53,87.11,80.87,79.47,78.98,9.45,27.10,23.46,77.70
-Netherlands,177.80,94.23,71.11,82.22,79.61,6.71,32.83,27.33,86.81
-Switzerland,172.86,114.60,78.44,71.74,138.16,10.42,28.87,22.43,79.63

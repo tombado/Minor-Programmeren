@@ -1,6 +1,0 @@
-date,close,country
-1,58.13,holland
-2,53.98,holland
-3,67.00,duitsland
-4,89.70,duitsland
-5,99.00,duitsland

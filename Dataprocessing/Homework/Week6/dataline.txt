@@ -1,7 +1,0 @@
-﻿country,quality of life index,year
-Denmark,180.14,2017
-Denmark,201.53,2016
-Denmark,254.74,2015
-Denmark,165.60,2014
-Denmark,182.29,2013
-Denmark,163.12,2012
