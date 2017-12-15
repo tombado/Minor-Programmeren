@@ -123,25 +123,25 @@ function newerFunction(useCountry,data){
   
 
   svgline.append("path")
-      .datum(data)
-      .attr("class", "line")
-      .attr("d", valueline)
-      .attr("stroke-width", 4)
-      .style("stroke",useColor)
-      .on("mouseover", function(d) {
-       div.transition()
-         .duration(200)
-         .style("opacity", .9);
+    .datum(data)
+    .attr("class", "line")
+    .attr("d", valueline)
+    .attr("stroke-width", 4)
+    .style("stroke",useColor)
+    .on("mouseover", function(d) {
+      div.transition()
+        .duration(200)
+        .style("opacity", .9);
          
 
-       div.html(useCountry)
-         .style("left", (d3.event.pageX) + "px")
-         .style("top", (d3.event.pageY - 28) + "px");
+      div.html(useCountry)
+        .style("left", (d3.event.pageX) + "px")
+        .style("top", (d3.event.pageY - 28) + "px");
        })
-     .on("mouseout", function(d) {
-       div.transition()
-         .duration(500)
-         .style("opacity", 0);
+        .on("mouseout", function(d) {
+      div.transition()
+        .duration(500)
+        .style("opacity", 0);
        })  
   
 }
@@ -212,14 +212,14 @@ function newFunction(d,data){
   
   // X axis.    
   g.append("g")
-      .attr("class", "axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x0));
+    .attr("class", "axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x0));
 
   // y axis.
   g.append("g")
-      .attr("class", "axis")
-      .call(d3.axisLeft(y).ticks(null, "s"))
+    .attr("class", "axis")
+    .call(d3.axisLeft(y).ticks(null, "s"))
     .append("text")
       .attr("x", 2)
       .attr("y", y(y.ticks().pop()) + 0.5)
@@ -231,24 +231,24 @@ function newFunction(d,data){
       .attr("font-size", 15);
 
   var legend = g.append("g")
-      .attr("font-family", "sans-serif")
-      .attr("font-size", 10)
-      .attr("text-anchor", "end")
+    .attr("font-family", "sans-serif")
+    .attr("font-size", 10)
+    .attr("text-anchor", "end")
     .selectAll("g")
-    .data(keys.slice().reverse())
-    .enter().append("g")
+      .data(keys.slice().reverse())
+      .enter().append("g")
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
   legend.append("rect")
-      .attr("x", width - 19)
-      .attr("width", 19)
-      .attr("height", 19)
-      .attr("fill", z);
+    .attr("x", width - 19)
+    .attr("width", 19)
+    .attr("height", 19)
+    .attr("fill", z);
 
   legend.append("text")
-      .attr("x", width - 24)
-      .attr("y", 9.5)
-      .attr("dy", "0.32em")
-      .text(function(d) { return d; });
+    .attr("x", width - 24)
+    .attr("y", 9.5)
+    .attr("dy", "0.32em")
+    .text(function(d) { return d; });
 }
 }
